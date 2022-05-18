@@ -25,7 +25,8 @@ function App() {
     e.preventDefault();
     const name = e.target.name.value;
     const description = e.target.description.value;
-    const task = { name, description };
+    const status = 1;
+    const task = { name, description, status };
 
     axios.post("https://stormy-gorge-17032.herokuapp.com/task", task)
     .then((res) => {
@@ -69,6 +70,27 @@ function App() {
     })
     }
   },[del]);
+
+
+  const deleteComplete = (id) => {
+
+    fetch(`https://stormy-gorge-17032.herokuapp.com/complete-task/${id}`, {
+      method: 'PUT'
+    })
+    .then(ress => ress.json())
+        .then(res => {
+          if(res.message) {
+            toast.error(`${res.message}`, {
+              position: "top-center",})
+          }
+              else if(res.result.acknowledged) {
+            toast.success('Task completed!', {
+              position: "top-center",})
+          }
+        
+        })
+
+  }
 
   const handleLogin = () => {
     signOut(auth)
@@ -119,10 +141,11 @@ function App() {
                     {task.map(t => <ListGroup.Item className="d-flex list_item" key={t._id}>
                       <div>
                       <h5>{t.name}</h5>
-                      <p>{t.description}</p>
+                      {t.status === 1 ? <p>{t.description}</p> : <del><p>{t.description}</p></del>}
                       </div>
-                      <div>
-                      <Button onClick={()=>deleteHandle(t._id, t.name)} className="btn-sm" variant="outline-danger">Delete</Button>
+                      <div className="text-center">
+                      {t.status === 1 ? <Button onClick={()=>deleteComplete(t._id, t.name)} className="btn btn-sm mb-2" variant="info">Complete</Button> : '' }
+                      <br /><Button onClick={()=>deleteHandle(t._id, t.name)} className="btn btn-sm" variant="danger">Delete</Button>
                       </div>
                     </ListGroup.Item>)}
                   </ListGroup>

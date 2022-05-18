@@ -1,0 +1,14 @@
+[debug] [2022-05-18T23:46:05.421Z] ----------------------------------------------------------------------
+[debug] [2022-05-18T23:46:05.424Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Asadujjaman Julhas\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2022-05-18T23:46:05.424Z] CLI Version:   10.7.1
+[debug] [2022-05-18T23:46:05.424Z] Platform:      win32
+[debug] [2022-05-18T23:46:05.425Z] Node Version:  v16.14.0
+[debug] [2022-05-18T23:46:05.429Z] Time:          Thu May 19 2022 05:46:05 GMT+0600 (Bangladesh Standard Time)
+[debug] [2022-05-18T23:46:05.430Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-05-18T23:46:05.504Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-05-18T23:46:05.504Z] > authorizing via signed-in user (asadjulhas@gmail.com)
+[debug] [2022-05-18T23:46:05.504Z] [iam] checking project to-do-list-be50b for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2022-05-18T23:46:05.506Z] > refreshing access token with scopes: []
+[debug] [2022-05-18T23:46:05.507Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
